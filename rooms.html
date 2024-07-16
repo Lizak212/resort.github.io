@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    
+    header {
+      background-color: green;
+      color: white;
+      padding: 10px;
+    }
+
+    .button-link {
+      text-decoration: none;
+      color: white;
+      margin: 50px;
+    }
+
+    .button-link:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .carousel {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      border: solid black 5px; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 300px;
+      height: 300px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <header> 
+    <a class = "button-link" href = "index.html">Home Page</a>
+    <a class = "button-link" href = "rooms.html">Room Bookings</a>
+  </header>
+
+  <div class = "room">
+    <h1>Single Room</h1>
+    
+    <div class = "carousel" id = "Single Room">
+      <div class = "carousel-images">
+        <img src = "room1.1.jpeg"> 
+        <img src = "room1.2.jpeg">
+        <img src = "room1.3.jpeg">
+      </div>
+    </div>
+
+    <h2>Amenities</h2>
+    <ul>
+      <li>Free Wi-fi</li>
+      <li>Tv</li>
+      <li>Single bed</li>
+      <li>Single bathroom</li>
+    </ul>
+
+    <h2>Price: 100$ per night</h2>
+  </div>
+
+  <div class = "room">
+    <h1>Double Room</h1>
+
+    <div class = "carousel" id = "Double Room">
+      <div class = "carousel-images">
+        <img src = "room2.1.jpeg"> 
+        <img src = "room2.2.jpeg">
+        <img src = "room2.3.jpeg">
+      </div>
+    </div>
+
+    <h2>Amenities</h2>
+    <ul>
+      <li>Free Wi-fi</li>
+      <li>Tv</li>
+      <li>Double bed</li>
+      <li>Single bathroom</li>
+      <li>Patio</li>
+    </ul>
+
+    <h2>Price: 150$ per night</h2>
+  </div>
+
+  <div class = "room">
+    <h1>Suite Room</h1>
+
+    <div class = "carousel" id = "Suite Room">
+      <div class = "carousel-images">
+        <img src = "room3.1.jpeg"> 
+        <img src = "room3.2.jpeg">
+        <img src = "room3.3.jpeg">
+      </div>
+    </div>
+
+    <h2>Amenities</h2>
+    <ul>
+      <li>Free Wi-fi</li>
+      <li>Tv</li>
+      <li>Double bed</li>
+      <li>Single bathroom</li>
+      <li>Patio</li>
+    </ul>
+
+    <h2>Price: 200$ per night</h2>
+  </div>
+
+  <script>
+    function changeImage(carousel_id) {
+      var index = 0;
+      var carousel = document.getElementById(carousel_id);
+      var images = carousel.querySelector(".carousel-images");
+
+      setInterval(() => {
+        index = (index + 1) % images.children.length;
+        images.style.transform = `translateX(${-index * 100}%)`;
+      }, 3000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      changeImage ("Single Room");
+      changeImage ("Double Room");
+      changeImage ("Suite Room");
+    });
+  </script>
+  
+</body>
+
+</html>
